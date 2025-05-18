@@ -29,11 +29,11 @@ You can configure the backend API endpoint:
 3. The default is `http://localhost:5000` (for local development)
 
 ## File Structure
-/src/
-├── content.js - Main content script that runs on Google Meet
-├── popup.js - Popup window logic
-├── background.js - Background service worker
-├── styles.css - Styling for the assistant UI
-├── popup.html - Popup window HTML
-├── overlay.html - Assistant overlay HTML
-├── manifest.json - Extension configuration
+/src/  
+├── content.js - Main content script that runs on Google Meet  
+├── popup.js - Popup window logic  
+├── background.js - Background service worker  
+├── styles.css - Styling for the assistant UI  
+├── popup.html - Popup window HTML  
+├── overlay.html - Assistant overlay HTML  
+├── manifest.json - Extension configuration  
