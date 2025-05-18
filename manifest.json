@@ -13,6 +13,9 @@
       "service_worker": "background.js",
       "type": "module"
     },
+    "host_permissions": [
+      "https://meet.google.com/*"
+    ],
     "content_scripts": [
       {
         "matches": [
