@@ -1,0 +1,161 @@
+.meet-assistant-container {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 320px;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    font-family: 'Roboto', Arial, sans-serif;
+    transition: all 0.3s ease;
+  }
+  
+  .meet-assistant-container.minimized {
+    height: 40px;
+  }
+  
+  .meet-assistant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #1a73e8;
+    color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .meet-assistant-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .meet-assistant-controls {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .meet-assistant-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .meet-assistant-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .meet-assistant-btn#recordBtn {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+  }
+  
+  .meet-assistant-btn#recordBtn.recording {
+    background-color: #ea4335;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(234, 67, 53, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 6px rgba(234, 67, 53, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(234, 67, 53, 0);
+    }
+  }
+  
+  .meet-assistant-messages {
+    flex-grow: 1;
+    padding: 12px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .meet-assistant-container.minimized .meet-assistant-messages,
+  .meet-assistant-container.minimized .meet-assistant-input-area {
+    display: none;
+  }
+  
+  .meet-assistant-message {
+    padding: 8px 12px;
+    border-radius: 16px;
+    max-width: 85%;
+    word-break: break-word;
+  }
+  
+  .meet-assistant-message.user {
+    align-self: flex-end;
+    background-color: #e3f2fd;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .meet-assistant-message.assistant {
+    align-self: flex-start;
+    background-color: #f1f3f4;
+    border-bottom-left-radius: 4px;
+  }
+  
+  .meet-assistant-message-sender {
+    font-size: 12px;
+    color: #5f6368;
+    margin-bottom: 4px;
+  }
+  
+  .meet-assistant-message-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .meet-assistant-input-area {
+    display: flex;
+    padding: 8px 12px;
+    border-top: 1px solid #e8eaed;
+  }
+  
+  .meet-assistant-input {
+    flex-grow: 1;
+    border: 1px solid #dadce0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    outline: none;
+    font-size: 14px;
+  }
+  
+  .meet-assistant-input:focus {
+    border-color: #1a73e8;
+  }
+  
+  .meet-assistant-send-btn {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin-left: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .meet-assistant-send-btn:hover {
+    background-color: #1765cc;
+  }

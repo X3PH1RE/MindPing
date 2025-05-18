@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meet Assistant</title>
+  <style>
+    body {
+      width: 250px;
+      font-family: 'Roboto', Arial, sans-serif;
+      padding: 16px;
+    }
+    
+    h1 {
+      color: #1a73e8;
+      font-size: 18px;
+      margin-top: 0;
+    }
+    
+    p {
+      font-size: 14px;
+      color: #5f6368;
+      line-height: 1.5;
+    }
+    
+    .status {
+      display: flex;
+      align-items: center;
+      margin: 16px 0;
+    }
+    
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .status-dot.active {
+      background-color: #34a853;
+    }
+    
+    .status-dot.inactive {
+      background-color: #ea4335;
+    }
+    
+    .status-text {
+      font-size: 14px;
+    }
+    
+    button {
+      background-color: #1a73e8;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    
+    button:hover {
+      background-color: #1765cc;
+    }
+    
+    .settings {
+      margin-top: 16px;
+    }
+    
+    .setting-item {
+      margin-bottom: 8px;
+    }
+    
+    label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meet Assistant</h1>
+  
+  <div class="status">
+    <div id="statusDot" class="status-dot inactive"></div>
+    <div id="statusText" class="status-text">Not active</div>
+  </div>
+  
+  <p>This extension provides an AI assistant for your Google Meet calls.</p>
+  
+  <button id="toggleBtn">Show Assistant</button>
+  
+  <div class="settings">
+    <div class="setting-item">
+      <label for="backendUrl">Backend URL:</label>
+      <input type="text" id="backendUrl" value="http://localhost:5000">
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>

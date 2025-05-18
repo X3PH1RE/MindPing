@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Meet Assistant",
+    "version": "1.0",
+    "description": "A real-time AI assistant for Google Meet",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "storage",
+      "webNavigation"
+    ],
+    "host_permissions": [
+      "https://meet.google.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://meet.google.com/*"],
+        "js": ["content.js"],
+        "css": ["styles.css"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html"
+      }
+  }
