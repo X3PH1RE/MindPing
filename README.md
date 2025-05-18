@@ -35,5 +35,4 @@ You can configure the backend API endpoint:
 ├── background.js - Background service worker  
 ├── styles.css - Styling for the assistant UI  
 ├── popup.html - Popup window HTML  
-├── overlay.html - Assistant overlay HTML  
 ├── manifest.json - Extension configuration  
