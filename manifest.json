@@ -9,15 +9,22 @@
       "storage",
       "webNavigation"
     ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
     "host_permissions": [
       "https://meet.google.com/*"
     ],
-    "background": {
-      "service_worker": "background.js"
-    },
     "content_scripts": [
       {
-        "matches": ["https://meet.google.com/*"],
+        "matches": [
+          "https://*.google.com/*",
+          "https://*.zoom.us/*",
+          "https://*.teams.microsoft.com/*",
+          "https://*.webex.com/*",
+          "https://*.gotomeeting.com/*"
+        ],
         "js": ["content.js"],
         "css": ["styles.css"]
       }

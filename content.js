@@ -203,30 +203,54 @@ function sendTranscriptToBackend(text) {
 function sendUserMessage() {
   const message = assistantInput.value.trim();
   if (!message) return;
+
+  
   
   addMessage('You', message, 'user');
   assistantInput.value = '';
-  
-  fetch(`${backendUrl}/ask`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      message: message,
-      transcript: transcript
-    }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.response) {
-      addMessage('MindPing', data.response, 'assistant');
+
+  chrome.runtime.sendMessage({
+    action: "textPrompt",
+    content: message
+  }, (response) => {
+    if (chrome.runtime.lastError) {
+      console.error('Runtime error:', chrome.runtime.lastError);
+      addMessage('MindPing', 'Communication error. Try again.', 'assistant');
+      return;
     }
-  })
-  .catch(error => {
-    console.error('Error sending message to backend:', error);
-    addMessage('MindPing', 'Sorry, there was an error communicating with the server.', 'assistant');
+  
+    if (response && response.response) {
+      addMessage('MindPing', response.response, 'assistant');
+    } else {
+      console.error('Invalid response from background:', response);
+      addMessage('MindPing', 'Error processing your request.', 'assistant');
+    }
   });
+
+  // handleTextRequest(message).then(response => {
+  //   addMessage('MindPing', response, 'assistant');
+  // });
+  
+  // fetch(`${backendUrl}/ask`, {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  //   body: JSON.stringify({
+  //     message: message,
+  //     transcript: transcript
+  //   }),
+  // })
+  // .then(response => response.json())
+  // .then(data => {
+  //   if (data.response) {
+  //     addMessage('MindPing', data.response, 'assistant');
+  //   }
+  // })
+  // .catch(error => {
+  //   console.error('Error sending message to backend:', error);
+  //   addMessage('MindPing', 'Sorry, there was an error communicating with the server.', 'assistant');
+  // });
 }
 
 // Add a message to the UI
